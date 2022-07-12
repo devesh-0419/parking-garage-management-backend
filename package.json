@@ -1,0 +1,20 @@
+{
+  "name": "parking-garage-management-backend",
+  "version": "1.0.0",
+  "description": "A backend API with several end-point to manage the Parking Garage",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon express.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devesh-0419/parking-garage-management-backend.git"
+  },
+  "author": "Devesh Swarnkar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/devesh-0419/parking-garage-management-backend/issues"
+  },
+  "homepage": "https://github.com/devesh-0419/parking-garage-management-backend#readme"
+}
