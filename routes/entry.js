@@ -1,6 +1,7 @@
 const express = require('express');
 const Consumer= require('../model/consumer');
 
+
 const router = express();
 
 router.post('/',async(req,res)=>{
@@ -15,7 +16,8 @@ router.post('/',async(req,res)=>{
            name:user.name,
            vehicleNumber:user.vehicleNumber,
            mobileNumber:user.mobileNumber,
-           typeOfVehicle:user.typeOfVehicle
+           typeOfVehicle:user.typeOfVehicle,
+          
 
         });
         await consumer.save();

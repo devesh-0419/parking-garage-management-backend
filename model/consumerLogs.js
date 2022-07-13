@@ -12,7 +12,7 @@ const consumerLogSchema=mongoose.Schema({
         required:true,
         minlength:10,
         maxlength:20,
-        unique:true
+      
       },
       typeOfVehicle:{
         type:String,
