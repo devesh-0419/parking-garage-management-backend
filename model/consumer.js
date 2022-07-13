@@ -1,5 +1,5 @@
 const mongoose= require('mongoose');
-
+const dayjs=require('dayjs');
 
 const consumerSchema=mongoose.Schema({
       name:{
@@ -33,11 +33,12 @@ const consumerSchema=mongoose.Schema({
 });
 
 consumerSchema.methods.getChargeAmount=function (now) {
-       let entryDate=new Date(this.dateOfEntry);
-       let currentDate=new Date(now);
-      
-       let durationHour =Math.ceil((currentDate.getTime()-entryDate.getTime())/(1000*3600*24));
-      // console.log('durationHour: ', durationHour)
+       let entryDate=dayjs(this.dateOfEntry);
+       let currentDate=dayjs(now);
+      console.log('entryDate', entryDate.format('YYYY-MM-DD'));
+      console.log('currentDate', currentDate.format('YYYY-MM-DD'));
+      let durationHour =Math.ceil((currentDate.getmilisecond()-entryDate.getmilisecond())/(1000*3600*24));
+    
        let price=5*durationHour;
        
        return price;
