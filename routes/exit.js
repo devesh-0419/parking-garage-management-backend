@@ -7,15 +7,15 @@ const router = express();
 
 router.post('/',async (req,res)=>{
     try {
-        let user=req.body;
-           let consumer= await Consumer.findOne({vehicleNumber:user.vehicleNumber});
+       
+           let consumer= await Consumer.findOne({vehicleNumber:req.body.vehicleNumber});
            if(!consumer) return res.send(`${req.body.vehicleNumber} not found check the number.`);
     
-         let price = consumer.getChargeAmount(Date.now());
+         let price = consumer.getChargeAmount();
        console.log('rentPrice', price)
 
-           res.send(`Price for the Parking will be ${price}`);
-       user=consumer;
+          //console.log('consumer: ', consumer);
+      let user=consumer;
           let consumerLogs= new ConsumerLogs({
             name:user.name,
             vehicleNumber:user.vehicleNumber,
@@ -26,11 +26,14 @@ router.post('/',async (req,res)=>{
             duration:price/5,
             
           });
+          const log= await consumerLogs.save();
+        //  console.log('logged', log);
     
-          await consumerLogs.save();
-    
-        await Consumer.findOneAndDelete({vehicleNumber:user.vehicleNumber});
-        
+          
+          const visited = await Consumer.findOneAndDelete({vehicleNumber:user.vehicleNumber});
+          // console.log('visited', visited);
+          
+          res.send(`Price for the Parking will be ${price}`);
     } catch (error) {
 
         console.error(error.message)

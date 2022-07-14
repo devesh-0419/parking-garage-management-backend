@@ -9,7 +9,7 @@ router.post('/',async(req,res)=>{
    try {
       
       let consumer= await Consumer.findOne({vehicleNumber:req.body.vehicleNumber});
-        if(consumer) return res.send(`/"${req.body.vehicleNumber}/" already present Please check Number.`);
+        if(consumer) return res.send(`${req.body.vehicleNumber}already present Please check Number.`);
 
        let user=req.body
         consumer=new Consumer({
@@ -17,7 +17,7 @@ router.post('/',async(req,res)=>{
            vehicleNumber:user.vehicleNumber,
            mobileNumber:user.mobileNumber,
            typeOfVehicle:user.typeOfVehicle,
-          
+           dateOfEntry:user.dateOfEntry
 
         });
         await consumer.save();
