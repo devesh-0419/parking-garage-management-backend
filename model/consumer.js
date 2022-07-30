@@ -1,6 +1,5 @@
 const mongoose= require('mongoose');
 
-
 const consumerSchema=mongoose.Schema({
       name:{
         type:String,
@@ -32,15 +31,13 @@ const consumerSchema=mongoose.Schema({
 
 });
 
-consumerSchema.methods.getChargeAmount=function (now) {
-       let entryDate=new Date(this.dateOfEntry);
-       let currentDate=new Date(now);
+consumerSchema.methods.getChargeAmount=function () {
+          now= new Date();
+          let duration = Math.ceil((now.getTime()-this.dateOfEntry.getTime())/(1000*3600));
+          console.log('duration', duration);
+          let price = 5*duration;
+          return price;
       
-       let durationHour =Math.ceil((currentDate.getTime()-entryDate.getTime())/(1000*3600*24));
-      // console.log('durationHour: ', durationHour)
-       let price=5*durationHour;
-       
-       return price;
 }
 
 

@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/devesh-0419/parking-garage-management-backend/issues"
   },
-  "homepage": "https://github.com/devesh-0419/parking-garage-management-backend#readme"
+  "homepage": "https://github.com/devesh-0419/parking-garage-management-backend#readme",
+  "dependencies": {
+    "dayjs": "^1.11.3"
+  }
 }
