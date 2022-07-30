@@ -7,7 +7,7 @@ const app = express();
 app.use(express.json());
 app.use('/api/entry',vehicleEnter);
 app.use('/api/exit',vehicleExit);
-app.use('/api/reserveSpot',reserveSpot);
+app.use('/api/reserveSpots',reserveSpot);
 
 const mongoose= require('mongoose');
 
